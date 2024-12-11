@@ -1,0 +1,21 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ''
+  h2:
+    console:
+      enabled: true
+  jpa:                              # JPA (Java Persistence API) configuration
+    database-platform: org.hibernate.dialect.H2Dialect  # Specifies the dialect for the database (H2 in-memory database in this case)
+    hibernate:                      # Hibernate-specific configuration
+      ddl-auto: update              # Strategy for schema generation:
+      # - create: Recreates schema on every startup.
+      # - update: Updates schema if necessary.
+      # - validate: Validates schema without changes.
+    # - none: Does nothing regarding schema.
+    show-sql: true                  # Enables SQL query logging in the console for debugging purposes.
+
