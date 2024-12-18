@@ -1,11 +1,12 @@
 package com.drake7v.accounts.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.http.HttpStatusCode;
 
 import java.time.LocalDateTime;
 
-@Data
+@Data@AllArgsConstructor
 public class ErrorResponseDto {
 
     private String apiPath;
