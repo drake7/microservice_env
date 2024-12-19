@@ -2,8 +2,8 @@ package com.drake7v.accounts.mapper;
 
 import com.drake7v.accounts.dto.AccountsDto;
 import com.drake7v.accounts.entity.Accounts;
+public class AccountsMapper {
 
-public class AccountMapper {
     public static AccountsDto mapToAccountsDto(Accounts accounts, AccountsDto accountsDto) {
         accountsDto.setAccountNumber(accounts.getAccountNumber());
         accountsDto.setAccountType(accounts.getAccountType());
