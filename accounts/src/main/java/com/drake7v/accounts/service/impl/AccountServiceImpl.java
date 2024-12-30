@@ -1,10 +1,13 @@
 package com.drake7v.accounts.service.impl;
 
 import com.drake7v.accounts.constants.AccountsConstants;
+import com.drake7v.accounts.dto.AccountsDto;
 import com.drake7v.accounts.dto.CustomerDto;
 import com.drake7v.accounts.entity.Accounts;
 import com.drake7v.accounts.entity.Customer;
 import com.drake7v.accounts.exceptions.CustomerAlreadyExistsException;
+import com.drake7v.accounts.exceptions.ResourceNotFoundException;
+import com.drake7v.accounts.mapper.AccountsMapper;
 import com.drake7v.accounts.mapper.CustomerMapper;
 import com.drake7v.accounts.repository.AccountsRepository;
 import com.drake7v.accounts.repository.CustomerRepository;
@@ -12,6 +15,7 @@ import com.drake7v.accounts.service.IAccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Random;
 
@@ -29,6 +33,8 @@ public class AccountServiceImpl implements IAccountService {
         Customer customer = CustomerMapper.mapToCustomer(customerDto,new Customer());
         Optional<Customer> optionalCustomer = customerRepository.findByMobileNumber(customerDto.getMobileNumber());
 
+        customer.setCreatedAt(LocalDateTime.now());
+        customer.setCreatedBy("Deepak");
         if(optionalCustomer.isPresent())
         {
             throw new CustomerAlreadyExistsException("Customer Already Exist in the system" + customerDto.getMobileNumber());
@@ -39,10 +45,12 @@ public class AccountServiceImpl implements IAccountService {
     }
 
 
+
     /**
      * @param customer - Customer Object
      * @return the new account details
      */
+
     private Accounts createNewAccount(Customer customer) {
         Accounts newAccount = new Accounts();
         newAccount.setCustomerId(customer.getCustomerId());
@@ -51,6 +59,8 @@ public class AccountServiceImpl implements IAccountService {
         newAccount.setAccountNumber(randomAccNumber);
         newAccount.setAccountType(AccountsConstants.SAVINGS);
         newAccount.setBranchAddress(AccountsConstants.ADDRESS);
+        newAccount.setCreatedAt(LocalDateTime.now());
+        newAccount.setCreatedBy("Deepak");
         return newAccount;
     }
 /*
@@ -59,7 +69,7 @@ public class AccountServiceImpl implements IAccountService {
      * @return Accounts Details based on a given mobileNumber
      */
 
-/*    @Override
+    @Override
     public CustomerDto fetchAccount(String mobileNumber) {
         Customer customer = customerRepository.findByMobileNumber(mobileNumber).orElseThrow(
                 () -> new ResourceNotFoundException("Customer", "mobileNumber", mobileNumber)

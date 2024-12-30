@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Getter@Setter@ToString@NoArgsConstructor@AllArgsConstructor
+@Getter @Setter @ToString @NoArgsConstructor @AllArgsConstructor
 public class Customer extends BaseEntity{
 
     @Id
@@ -19,7 +19,7 @@ public class Customer extends BaseEntity{
     @Column(name = "email")
     private String email;
 
-    @Column(name = "mobileNumber")
+    @Column(name = "mobile_number")
     private String mobileNumber;
 
 
