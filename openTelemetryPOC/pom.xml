@@ -27,7 +27,17 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>17</java.version>
+		<java.release.version>17</java.release.version>
+		<java.compatible.versions>[21, 23)</java.compatible.versions>
+		<maven.compatible.versions>[3.6.3, 4.0.0)</maven.compatible.versions>
+		<maven.compiler.source>${java.release.version}</maven.compiler.source>
+		<maven.compiler.target>${java.release.version}</maven.compiler.target>
+
+		<flag.allowSnapshots>true</flag.allowSnapshots>
+
+		<!-- 2.5.0-alpha only works with 1.39.0 -->
+		<opentelemetry-bom.version>1.40.0</opentelemetry-bom.version>
+		<opentelemetry-instrumentation-bom-alpha.version>2.6.0-alpha</opentelemetry-instrumentation-bom-alpha.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -44,7 +54,28 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- OpenTelemetry API -->
+		<dependency>
+			<groupId>io.opentelemetry</groupId>
+			<artifactId>opentelemetry-api</artifactId>
+			<version>1.45.0</version>
+		</dependency>
+
+		<!-- OpenTelemetry SDK -->
+		<dependency>
+			<groupId>io.opentelemetry</groupId>
+			<artifactId>opentelemetry-sdk</artifactId>
+			<version>1.45.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.opentelemetry/opentelemetry-exporter-prometheus -->
+		<dependency>
+			<groupId>io.opentelemetry</groupId>
+			<artifactId>opentelemetry-exporter-prometheus</artifactId>
+			<version>1.46.0-alpha</version>
+		</dependency>
+
 	</dependencies>
+
 
 	<build>
 		<plugins>
