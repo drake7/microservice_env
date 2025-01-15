@@ -30,7 +30,7 @@ public class OpenTelemetryConfig {
         // Use the OTLP HTTP exporter instead of the deprecated Dynatrace exporter
         OtlpHttpMetricExporter otlpExporter = OtlpHttpMetricExporter.builder()
                 .setEndpoint("https://unf86453.live.dynatrace.com/api/v2/otlp/v1/metrics")
-                .addHeader("Authorization", "Api-Token dt0c01.MWLA7WFXYEOOWI4BBW4F6FBG.FXNI3SZVAE7QYL44E5N5ICQ2CLMZU3DJWJLSOJP6ELYFHBGWVFEIHSDN7IASYKH5") // Replace with a secure method of storing the token
+                .addHeader("Authorization", "Api-Token") // Replace with a secure method of storing the token
                 .build();
 
         // Set up Meter Provider with Prometheus and OTLP exporters
