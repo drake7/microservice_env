@@ -16,7 +16,7 @@ public class TimerMetric {
         Meter meter = openTelemetry.getMeter("timer-metric");
 
         // Create a histogram to record execution times
-        this.executionTimeHistogram = meter.histogramBuilder("execution_time")
+        this.executionTimeHistogram = meter.histogramBuilder("execution_time_deepak")
                 .setDescription("Records execution time of tasks")
                 .setUnit("ms") // The unit of measurement is milliseconds
                 .ofLongs()

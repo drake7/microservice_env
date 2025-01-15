@@ -35,7 +35,7 @@ public class MetricsController {
     @GetMapping("/hello")
     public String hello() {
         // Increment the counter
-        requestCounter.add(1);
+        requestCounter.add(10);
 
         // Update Gauge Metric
         gaugeMetric.setActiveUsers((long) (Math.random() * 100)); // Random active users for testing
@@ -50,7 +50,7 @@ public class MetricsController {
         });
 
         // Record Histogram Metric
-        histogramMetric.recordValue((long) (Math.random() * 500)); // Random value for testing
+        histogramMetric.updateDuration((long) (Math.random() * 500)); // Random value for testing
 
         return "Hello, OpenTelemetry!";
     }

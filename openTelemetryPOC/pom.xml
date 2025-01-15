@@ -39,6 +39,19 @@
 		<opentelemetry-bom.version>1.40.0</opentelemetry-bom.version>
 		<opentelemetry-instrumentation-bom-alpha.version>2.6.0-alpha</opentelemetry-instrumentation-bom-alpha.version>
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>io.opentelemetry</groupId>
+				<artifactId>opentelemetry-bom</artifactId>
+				<version>1.45.0</version> <!-- Use the latest compatible version -->
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -73,6 +86,33 @@
 			<artifactId>opentelemetry-exporter-prometheus</artifactId>
 			<version>1.46.0-alpha</version>
 		</dependency>
+		<!-- HTTP Client for making API requests -->
+		<dependency>
+			<groupId>org.apache.httpcomponents.client5</groupId>
+			<artifactId>httpclient5</artifactId>
+			<version>5.4</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.opentelemetry/opentelemetry-exporter-otlp -->
+		<dependency>
+			<groupId>io.opentelemetry</groupId>
+			<artifactId>opentelemetry-exporter-otlp</artifactId>
+			<version>1.46.0</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/io.opentelemetry/opentelemetry-sdk-metrics -->
+		<dependency>
+			<groupId>io.opentelemetry</groupId>
+			<artifactId>opentelemetry-sdk-metrics</artifactId>
+			<version>1.46.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.opentelemetry.instrumentation/opentelemetry-spring-boot-autoconfigure -->
+		<dependency>
+			<groupId>io.opentelemetry.instrumentation</groupId>
+			<artifactId>opentelemetry-spring-boot-autoconfigure</artifactId>
+			<version>2.11.0</version>
+		</dependency>
+
 
 	</dependencies>
 

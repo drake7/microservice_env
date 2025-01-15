@@ -12,7 +12,7 @@ public class CounterMetric {
 
     public CounterMetric(OpenTelemetry openTelemetry) {
         Meter meter = openTelemetry.getMeter("counter-metric");
-        this.requestCounter = meter.counterBuilder("requests_count")
+        this.requestCounter = meter.counterBuilder("requests_count_deepak")
                 .setDescription("Counts the number of requests")
                 .setUnit("requests")
                 .build();

@@ -13,7 +13,7 @@ public class GaugeMetrics {
         Meter meter = openTelemetry.getMeter("gauge-metric");
 
         // Use callback to provide the current value of activeUsers
-        meter.gaugeBuilder("active_users")
+        meter.gaugeBuilder("active_users_deepak")
                 .setDescription("Tracks the number of active users")
                 .setUnit("users")
                 .ofLongs()
